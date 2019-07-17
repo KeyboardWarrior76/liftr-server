@@ -10,10 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_07_052943) do
+ActiveRecord::Schema.define(version: 2019_07_17_054746) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "exercises", force: :cascade do |t|
+    t.string "name"
+    t.string "kind"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "rep_schemes", force: :cascade do |t|
+    t.bigint "exercise_id"
+    t.bigint "training_date_id"
+    t.text "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["exercise_id"], name: "index_rep_schemes_on_exercise_id"
+    t.index ["training_date_id"], name: "index_rep_schemes_on_training_date_id"
+  end
+
+  create_table "training_dates", force: :cascade do |t|
+    t.bigint "user_id"
+    t.date "date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_training_dates_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "provider", default: "email", null: false
@@ -45,4 +70,18 @@ ActiveRecord::Schema.define(version: 2019_06_07_052943) do
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
+  create_table "work_sets", force: :cascade do |t|
+    t.integer "reps"
+    t.integer "weight"
+    t.float "rpe"
+    t.bigint "rep_scheme_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["rep_scheme_id"], name: "index_work_sets_on_rep_scheme_id"
+  end
+
+  add_foreign_key "rep_schemes", "exercises"
+  add_foreign_key "rep_schemes", "training_dates"
+  add_foreign_key "training_dates", "users"
+  add_foreign_key "work_sets", "rep_schemes"
 end
