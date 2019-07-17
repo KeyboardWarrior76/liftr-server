@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_17_054746) do
+ActiveRecord::Schema.define(version: 2019_07_17_074033) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2019_07_17_054746) do
     t.text "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "exercise_name"
     t.index ["exercise_id"], name: "index_rep_schemes_on_exercise_id"
     t.index ["training_date_id"], name: "index_rep_schemes_on_training_date_id"
   end

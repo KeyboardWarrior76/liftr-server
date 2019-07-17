@@ -19,6 +19,7 @@ for num in(0..19) do
     rep_scheme = RepScheme.create(
         training_date_id: training_date.id,
         exercise_id: exercise.id,
+        exercise_name: exercise.name,
         comment: "Test comment brah.",
     )
     

@@ -3,6 +3,11 @@ Rails.application.routes.draw do
 
   namespace :api do
     get "/users/:id/training_dates", to: "training_dates#index"
+    get "/users/:id/training_dates/get_by_date/:date", to: "training_dates#get_by_date"
+
+    resources :training_dates, only: [] do
+      resources :rep_schemes
+    end
   end
 
 end
