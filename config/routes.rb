@@ -8,6 +8,10 @@ Rails.application.routes.draw do
     resources :training_dates, only: [] do
       resources :rep_schemes
     end
+
+    resources :rep_schemes, only: [] do
+      resources :work_sets
+    end
   end
 
 end
