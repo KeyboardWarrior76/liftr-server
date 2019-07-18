@@ -1,6 +1,7 @@
 class Api::RepSchemesController < ApplicationController
-    before_action :set_training_date
+    before_action :set_training_date, only: [:index, :create]
     before_action :set_exercise, only: [:create]
+    before_action :set_rep_scheme, only: [:update, :destroy]
 
     def index
         render( json: @training_date.rep_schemes.all() )
@@ -24,11 +25,16 @@ class Api::RepSchemesController < ApplicationController
     end
 
     def update
-        
+        if @rep_scheme.update(rep_scheme_params())
+            render( json: rep_scheme )
+        else
+            render( json: { error: rep_scheme.erros, message: "Could Not Update Data" }, status: 422 )
+        end
     end
 
     def destroy
-        
+        @rep_scheme.destroy()
+        render( json: "Data Deleted" )
     end
 
     private
@@ -42,5 +48,9 @@ class Api::RepSchemesController < ApplicationController
 
         def set_exercise
             @exercise = Exercise.find(params[:exercise_id])
+        end
+
+        def set_rep_scheme
+            @rep_scheme = RepScheme.find(params[:id])
         end
 end
