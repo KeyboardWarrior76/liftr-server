@@ -1,6 +1,4 @@
 
-
-
 user = User.create(
     name: "Richard Feynman",
     email: "test@test.com",
@@ -8,19 +6,27 @@ user = User.create(
 )
 
 exercise0 = Exercise.create(
-    name: "bench press"
+    name: "bench press",
+    kind: "weight",
+    main_bodypart: "chest",
 )
 
 exercise1 = Exercise.create(
-    name: "barbell squat"
+    name: "barbell squat",
+    kind: "weight",
+    main_bodypart: "legs",
 )
 
 exercise2 = Exercise.create(
-    name: "barbell deadlift"
+    name: "barbell deadlift",
+    kind: "weight",
+    main_bodypart: "back",
 )
 
 exercise3 = Exercise.create(
-    name: "shoulder press"
+    name: "shoulder press",
+    kind: "weight",
+    main_bodypart: "shoulder",
 )
 
 for num in(0..10) do
@@ -32,28 +38,28 @@ for num in(0..10) do
         training_date_id: training_date.id,
         exercise_id: exercise0.id,
         exercise_name: exercise0.name,
-        comment: "Test comment brah.",
+        comment: "Test comment.",
     )
 
     rep_scheme1 = RepScheme.create(
         training_date_id: training_date.id,
         exercise_id: exercise1.id,
         exercise_name: exercise1.name,
-        comment: "Test comment brah.",
+        comment: "Test comment.",
     )
 
     rep_scheme2 = RepScheme.create(
         training_date_id: training_date.id,
         exercise_id: exercise2.id,
         exercise_name: exercise2.name,
-        comment: "Test comment brah.",
+        comment: "Test comment.",
     )
 
     rep_scheme3 = RepScheme.create(
         training_date_id: training_date.id,
         exercise_id: exercise3.id,
         exercise_name: exercise3.name,
-        comment: "Test comment brah.",
+        comment: "Test comment.",
     )
     
     for i in(1..4) do
