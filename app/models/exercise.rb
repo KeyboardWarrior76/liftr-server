@@ -5,6 +5,7 @@ class Exercise < ApplicationRecord
         Exercise.find_by_sql(["
             SELECT * FROM exercises
             WHERE name ILIKE ?
+            ORDER BY name
             ", "%#{term}%"])
     end
 end
