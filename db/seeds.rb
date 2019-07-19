@@ -97,28 +97,38 @@ for num in(0..10) do
         exercise_name: exercise3.name,
     )
     
-    for i in(1..4) do
+    for i in(1..5) do
+        # bench press
         rep_scheme0.work_sets.create(
-            reps: 5,
-            weight: 150,
-            rpe: 8,
-        )
-        rep_scheme1.work_sets.create(
-            reps: 5,
-            weight: 150,
-            rpe: 8,
-        )
-        rep_scheme2.work_sets.create(
-            reps: 5,
-            weight: 150,
-            rpe: 8,
-        )
-        rep_scheme3.work_sets.create(
-            reps: 5,
+            reps: 8,
             weight: 150,
             rpe: 8,
         )
     end
+    for i in(1..3) do
+        #barbell squat
+        rep_scheme1.work_sets.create(
+            reps: 5,
+            weight: 225,
+            rpe: 7,
+        )
+    end
+    for i in(1..5) do
+        #shoulder press
+        rep_scheme3.work_sets.create(
+            reps: 10,
+            weight: 115,
+            rpe: 7,
+        )
+    end
+    for i in(1..4) do
+        # barbell deadlift
+        rep_scheme2.work_sets.create(
+            reps: 5,
+            weight: 300,
+        )
+    end
+    
 end
 
 puts user.training_dates.first().rep_schemes.first().work_sets.all()
