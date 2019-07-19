@@ -6,6 +6,6 @@ class Exercise < ApplicationRecord
             SELECT * FROM exercises
             WHERE name ILIKE ?
             ORDER BY name
-            ", "%#{term}%"])
+            ", term == " " ? "%" : "%#{term}%"])
     end
 end
