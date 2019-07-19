@@ -26,8 +26,46 @@ exercise2 = Exercise.create(
 exercise3 = Exercise.create(
     name: "shoulder press",
     kind: "weight",
-    main_bodypart: "shoulder",
+    main_bodypart: "shoulders",
 )
+
+Exercise.create(
+    name: "barbell row",
+    kind: "weight",
+    main_bodypart: "back",
+)
+
+Exercise.create(
+    name: "weighted crunches",
+    kind: "weight",
+    main_bodypart: "abs",
+)
+
+Exercise.create(
+    name: "skullcrusher",
+    kind: "weight",
+    main_bodypart: "arms",
+)
+
+Exercise.create(
+    name: "bicep curl",
+    kind: "weight",
+    main_bodypart: "arms",
+)
+
+Exercise.create(
+    name: "chest flyes",
+    kind: "weight",
+    main_bodypart: "chest",
+)
+
+Exercise.create(
+    name: "lunges",
+    kind: "weight",
+    main_bodypart: "legs",
+)
+
+
 
 for num in(0..10) do
     training_date = user.training_dates.create(
@@ -45,21 +83,18 @@ for num in(0..10) do
         training_date_id: training_date.id,
         exercise_id: exercise1.id,
         exercise_name: exercise1.name,
-        comment: "Test comment.",
     )
 
     rep_scheme2 = RepScheme.create(
         training_date_id: training_date.id,
         exercise_id: exercise2.id,
         exercise_name: exercise2.name,
-        comment: "Test comment.",
     )
 
     rep_scheme3 = RepScheme.create(
         training_date_id: training_date.id,
         exercise_id: exercise3.id,
         exercise_name: exercise3.name,
-        comment: "Test comment.",
     )
     
     for i in(1..4) do
