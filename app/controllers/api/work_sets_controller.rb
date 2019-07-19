@@ -1,6 +1,6 @@
 class Api::WorkSetsController < ApplicationController
     before_action :set_rep_scheme, only: [:index, :create]
-    before_action :set_work_set, only: [:update]
+    before_action :set_work_set, only: [:update, :destroy]
 
     def index
         render( json: @rep_scheme.work_sets.all().sort_by(&:created_at) )
@@ -24,7 +24,8 @@ class Api::WorkSetsController < ApplicationController
     end
 
     def destroy
-        
+        @work_set.destroy()
+        render( json: "Data Deleted" )
     end
 
     private

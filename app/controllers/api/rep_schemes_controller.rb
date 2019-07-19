@@ -4,7 +4,7 @@ class Api::RepSchemesController < ApplicationController
     before_action :set_rep_scheme, only: [:update, :destroy]
 
     def index
-        render( json: @training_date.rep_schemes.all() )
+        render( json: @training_date.rep_schemes.all().sort_by(&:created_at) )
     end
 
     def show
@@ -26,9 +26,9 @@ class Api::RepSchemesController < ApplicationController
 
     def update
         if @rep_scheme.update(rep_scheme_params())
-            render( json: rep_scheme )
+            render( json: @rep_scheme )
         else
-            render( json: { error: rep_scheme.erros, message: "Could Not Update Data" }, status: 422 )
+            render( json: { error: @rep_scheme.erros, message: "Could Not Update Data" }, status: 422 )
         end
     end
 
