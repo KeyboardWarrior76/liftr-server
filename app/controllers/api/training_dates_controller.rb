@@ -5,6 +5,10 @@ class Api::TrainingDatesController < ApplicationController
         render( json: current_user.training_dates.all() )
     end
 
+    def index_of_dates_only
+        render( json: TrainingDate.get_dates_only(current_user.id) )
+    end
+
     def get_by_date
         render( json:  current_user.training_dates.find_by(date: params[:date]) )
     end
