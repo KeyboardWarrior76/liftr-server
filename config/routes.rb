@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   mount_devise_token_auth_for 'User', at: 'api/auth'
 
   namespace :api do
-    get "/exercises/search/:term", to: "exercises#search"
+    get "/exercises/search/", to: "exercises#search"
 
     resources :users, only: [] do
       resources :training_dates, only: [:index, :create, :destroy]
