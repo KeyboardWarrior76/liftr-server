@@ -1,7 +1,7 @@
 class Exercise < ApplicationRecord
     has_many :rep_schemes
 
-    def self.search(term, body_part=nil, kind=nil, offset=nil)
+    def self.search(term, body_part=nil, kind=nil, offset=nil, limit)
         allowed_body_parts = {
             "back" => true, 
             "chest" => true, 
@@ -21,14 +21,15 @@ class Exercise < ApplicationRecord
         body_part = "%" if(!allowed_body_parts[body_part])
         kind = "%" if(!allowed_kinds[kind])
         offset = offset == nil ? 0 : offset.to_i()
+        limit = limit.to_i()
 
         Exercise
             .where("name ILIKE ?", term)
             .where("main_bodypart LIKE ?", body_part)
             .where("kind LIKE ?", kind)
             .order(:name)
-            .limit(5)
-            .offset(offset * 5)
+            .limit(limit)
+            .offset(offset * limit)
 
 
     end

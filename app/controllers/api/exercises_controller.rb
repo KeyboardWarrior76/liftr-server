@@ -4,7 +4,8 @@ class Api::ExercisesController < ApplicationController
             params[:term], 
             params[:body_part], 
             params[:kind],
-            params[:offset]
+            params[:offset],
+            params[:limit],
         ))
     end
 end
