@@ -14,6 +14,8 @@ Rails.application.routes.draw do
       resources :rep_schemes
     end
 
+    get "/exercises/:exercise_id/rep_schemes/get_rep_scheme_history", to: "rep_schemes#get_rep_scheme_history"
+
     resources :rep_schemes, only: [] do
       resources :work_sets
     end

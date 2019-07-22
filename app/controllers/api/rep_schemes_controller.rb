@@ -7,6 +7,28 @@ class Api::RepSchemesController < ApplicationController
         render( json: @training_date.rep_schemes.all().sort_by(&:created_at) )
     end
 
+    def get_rep_scheme_history
+
+        rep_schemes = RepScheme.get_rep_scheme_history(
+            current_user.id, 
+            params[:exercise_id],
+            params[:limit]
+        )
+
+        
+        rep_schemes =  rep_schemes.map() {|rep_scheme|
+            {
+                exercise_name: rep_scheme.exercise_name,
+                comment: rep_scheme.comment,
+                date: rep_scheme.date,
+                id: rep_scheme.id,
+                work_sets: WorkSet.where(rep_scheme_id: rep_scheme.id),
+            }
+        }
+
+        render( json: rep_schemes )
+    end
+
     def show
         
     end
