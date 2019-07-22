@@ -15,7 +15,7 @@ class RepScheme < ApplicationRecord
       WHERE tr.user_id = ?
       AND rs.training_date_id = tr.id
       AND rs.exercise_id = ?
-      ORDER BY tr.date
+      ORDER BY tr.date DESC
       LIMIT ?
     ", user_id, exercise_id, limit])
   end
