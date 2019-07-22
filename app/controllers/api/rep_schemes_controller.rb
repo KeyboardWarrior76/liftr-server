@@ -22,7 +22,7 @@ class Api::RepSchemesController < ApplicationController
                 comment: rep_scheme.comment,
                 date: rep_scheme.date,
                 id: rep_scheme.id,
-                work_sets: WorkSet.where(rep_scheme_id: rep_scheme.id),
+                work_sets: WorkSet.where(rep_scheme_id: rep_scheme.id).sort_by(&:created_at),
             }
         }
 
