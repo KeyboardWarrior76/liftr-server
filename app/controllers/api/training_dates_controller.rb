@@ -7,7 +7,7 @@ class Api::TrainingDatesController < ApplicationController
 
     def index_of_dates_only
         puts "============================================================"
-        request.headers.each() { |header|  puts header }
+        request.headers["access-token"]
         puts "============================================================"
         render( json: TrainingDate.get_dates_only(current_user.id) )
     end
