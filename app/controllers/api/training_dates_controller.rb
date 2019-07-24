@@ -6,6 +6,9 @@ class Api::TrainingDatesController < ApplicationController
     end
 
     def index_of_dates_only
+        puts "============================================================"
+        puts request.headers
+        puts "============================================================"
         render( json: TrainingDate.get_dates_only(current_user.id) )
     end
 
