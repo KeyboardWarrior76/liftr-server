@@ -10,6 +10,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem "devise_token_auth", "~> 1.0.0"
 gem "rack-cors"
 gem "faker"
+gem "dotenv-rails"
 
 
 group :development, :test do

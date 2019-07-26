@@ -25,8 +25,7 @@ module LiftrServer
 
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-        #  origins 'https://liftr.netlify.com'
-         origins '*'
+         origins ENV["RAILS_ENV"] == "production" ? 'https://liftr.netlify.com' : '*'
          resource '*', headers: :any, expose: %w(access-token expiry token-type uid client), methods: [:get, :post, :delete, :put, :patch, :options]
        end
     end
