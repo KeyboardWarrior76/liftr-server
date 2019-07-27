@@ -65,6 +65,12 @@ Exercise.create(
     main_bodypart: "legs",
 )
 
+Exercise.create(
+    name: "running",
+    kind: "distance",
+    main_bodypart: "cardio",
+)
+
 
 
 for num in(0..10) do
@@ -76,6 +82,7 @@ for num in(0..10) do
         training_date_id: training_date.id,
         exercise_id: exercise0.id,
         exercise_name: exercise0.name,
+        exercise_kind: exercise0.kind,
         comment: "Test comment.",
     )
 
@@ -83,18 +90,21 @@ for num in(0..10) do
         training_date_id: training_date.id,
         exercise_id: exercise1.id,
         exercise_name: exercise1.name,
+        exercise_kind: exercise1.kind,
     )
 
     rep_scheme2 = RepScheme.create(
         training_date_id: training_date.id,
         exercise_id: exercise2.id,
         exercise_name: exercise2.name,
+        exercise_kind: exercise2.kind,
     )
 
     rep_scheme3 = RepScheme.create(
         training_date_id: training_date.id,
         exercise_id: exercise3.id,
         exercise_name: exercise3.name,
+        exercise_kind: exercise3.kind,
     )
     
     for i in(1..5) do

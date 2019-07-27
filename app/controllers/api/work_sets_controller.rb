@@ -30,7 +30,7 @@ class Api::WorkSetsController < ApplicationController
 
     private
         def work_set_params
-            params.require(:work_set).permit(:reps, :weight, :rpe)
+            params.require(:work_set).permit(:reps, :weight, :rpe, :distance)
         end
 
         def set_rep_scheme

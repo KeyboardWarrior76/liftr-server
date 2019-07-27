@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_27_060518) do
+ActiveRecord::Schema.define(version: 2019_07_27_063727) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(version: 2019_07_27_060518) do
     t.bigint "rep_scheme_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "distance"
     t.index ["rep_scheme_id"], name: "index_work_sets_on_rep_scheme_id"
   end
 
