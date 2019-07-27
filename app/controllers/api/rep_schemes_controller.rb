@@ -37,6 +37,7 @@ class Api::RepSchemesController < ApplicationController
         rep_scheme = @training_date.rep_schemes.new(
             exercise_id: @exercise.id,
             exercise_name: @exercise.name,
+            exercise_kind: @exercise.kind,
         )
 
         if rep_scheme.save()
