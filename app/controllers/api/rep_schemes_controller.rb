@@ -19,6 +19,7 @@ class Api::RepSchemesController < ApplicationController
         rep_schemes =  rep_schemes.map() {|rep_scheme|
             {
                 exercise_name: rep_scheme.exercise_name,
+                exercise_kind: rep_scheme.exercise_kind,
                 comment: rep_scheme.comment,
                 date: rep_scheme.date,
                 id: rep_scheme.id,
